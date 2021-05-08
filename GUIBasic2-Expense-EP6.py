@@ -25,12 +25,18 @@ filemenu.add_command(label='Export to Googlesheet')
 def About():
 	messagebox.showinfo('About','สวัสดีครับ โปรแกรมนี้คือโปรแกรมบันทึกข้อมูล\nสนใจบริจาคเราไหม? ขอ 1 BTC ก็พอแล้ว\nBTC Address: abc')
 
+
+
 helpmenu = Menu(menubar,tearoff=0)
 menubar.add_cascade(label='Help',menu=helpmenu)
 helpmenu.add_command(label='About',command=About)
+
 # Donate
+def Donate():
+	messagebox.showinfo('Donate','dogecoin network: DLaoRTEF36VqfUpLrcWKcrNDKH27VsqJ6v\nDogecoin BEP20(BSC):    0x0fd36bbcf3f1010796e748d3c4bd48c7ee61620e')
 donatemenu = Menu(menubar,tearoff=0)
 menubar.add_cascade(label='Donate',menu=donatemenu)
+donatemenu.add_command(label='Donate',command=Donate)
 #################################
 
 
