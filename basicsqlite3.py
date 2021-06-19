@@ -35,6 +35,16 @@ def insert_expense(transactionid,datetime,title,expense,quantity,total):
 	print('Insert Success!')
 
 
-insert_expense('2021156454545','วันเสาร์ 2021-06-19','ข้าวสาร',45,2,90)
+def show_expense():
+	with conn:
+		c.execute("SELECT * FROM expenselist")
+		expense = c.fetchall() #คำสั่งให้ดึงข้อมูลเข้ามา
+		print(expense)
+
+	return expense
+
+insert_expense('2021156454545','วันเสาร์ 2021-06-19','แอปเปิ้ล',45,2,90)
+show_expense()
+
 
 print('success')
