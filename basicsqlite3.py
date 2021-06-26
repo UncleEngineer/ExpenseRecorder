@@ -43,8 +43,26 @@ def show_expense():
 
 	return expense
 
-insert_expense('2021156454545','วันเสาร์ 2021-06-19','แอปเปิ้ล',45,2,90)
-show_expense()
+def update_expense(transactionid,title,expense,quantity,total):
+	with conn:
+		c.execute("""UPDATE expenselist SET title=?, expense=?, quantity=?, total=? WHERE transactionid=?""",
+			([title,expense,quantity,total,transactionid]))
+	conn.commit()
+	print('Data updated')
+
+
+
+def delete_expense(transactionid):
+	with conn:
+		c.execute("DELETE FROM expenselist WHERE transactionid=?",([transactionid]))
+	conn.commit()
+	print('Data deleted')
+
+
+#insert_expense('2021156454545','วันเสาร์ 2021-06-19','แอปเปิ้ล',45,2,90) # - C - CREATE
+#show_expense() # - R - READ
+#update_expense('2021156454546','ส้มโอ',30,2,60) # - U - UPDATE
+#delete_expense('2021156454547') # - D - DELETE
 
 
 print('success')
